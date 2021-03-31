@@ -117,23 +117,23 @@ def get_league_stats(webpage, driver_path, save_as):
     # Get defensive stats
     
     detailed_select_category.select_by_visible_text('Tackles')
-    time.sleep(1)
+    time.sleep(2)
     tacklesAttempted = get_rows('#top-team-stats-summary-content .tackleTotalAttempted')
     
     detailed_select_category.select_by_visible_text('Interception')
-    time.sleep(1)
+    time.sleep(2)
     interceptions = get_rows('#top-team-stats-summary-content .interceptionAll')
     
     detailed_select_category.select_by_visible_text('Fouls')
-    time.sleep(1)
+    time.sleep(2)
     foulsCommitted = get_rows('#top-team-stats-summary-content .foulCommitted')
     
     detailed_select_category.select_by_visible_text('Clearances')
-    time.sleep(1)
+    time.sleep(2)
     TotalClearances = get_rows('#top-team-stats-summary-content .clearanceTotal')
     
     detailed_select_category.select_by_visible_text('Blocks')
-    time.sleep(1)
+    time.sleep(2)
     ShotsBlocked = get_rows('#top-team-stats-summary-content .outfielderBlock')
     CrossesBlocked = get_rows('#top-team-stats-summary-content .passCrossBlockedDefensive')
     PassesBlocked = get_rows('#top-team-stats-summary-content .outfielderBlockedPass')
