@@ -13,20 +13,6 @@ import time
 import os
 import re 
 
-def get_team_rank_column(css_selector):
-    teams = driver.find_elements_by_css_selector(css_selector)
-    teams = [i.text for i in teams]
-    teams = [i for i in teams if i != ""]
-    pattern = '\d*[.]'
-    teams = [re.sub(pattern, '', i).lstrip(' ') for i in teams] 
-    return(teams)
-
-def get_rows(css_selector):
-    rows = driver.find_elements_by_css_selector(css_selector)
-    rows = [i.text for i in rows]
-    rows = [i for i in rows if i != ""]
-    return(rows)
-
 def get_league_stats(webpage, driver_path, save_as):
     
     driver = webdriver.Chrome(executable_path = driver_path)
@@ -49,6 +35,20 @@ def get_league_stats(webpage, driver_path, save_as):
     detailed_select_subcategory.select_by_visible_text('Zones')
     
     time.sleep(3)
+    
+    def get_team_rank_column(css_selector):
+        teams = driver.find_elements_by_css_selector(css_selector)
+        teams = [i.text for i in teams]
+        teams = [i for i in teams if i != ""]
+        pattern = '\d*[.]'
+        teams = [re.sub(pattern, '', i).lstrip(' ') for i in teams] 
+        return(teams)
+
+    def get_rows(css_selector):
+        rows = driver.find_elements_by_css_selector(css_selector)
+        rows = [i.text for i in rows]
+        rows = [i for i in rows if i != ""]
+        return(rows)
   
     teams = get_team_rank_column('#top-team-stats-summary-content .team-link')
    
